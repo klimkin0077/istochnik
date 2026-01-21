@@ -2,74 +2,108 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>WELLS-MO | Премиальное обслуживание колодцев и дренаж</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELLS-MO | Премиальное обслуживание колодцев</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-    <div class="container navbar">
-        <a href="index.html" class="logo">WELLS-MO</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="about.html">О компании</a></li>
-            <li><a href="cleaning.html">Обслуживание</a></li>
-            <li><a href="digging.html">Копка</a></li>
-            <li><a href="drainage.html">Дренаж</a></li>
-            <li><a href="works.html">Наши работы</a></li>
-        </ul>
-        <div class="tel-block">
-            <a href="tel:+79816666670">8 (981) 666-66-70 Денис</a>
-            <a href="tel:+79096449832">8 (909) 644-98-32 Анис</a>
-        </div>
-    </div>
-</header>
 
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">WELLS-MO</a>
+            <nav class="nav-links">
+                <a href="#about">О компании</a>
+                <a href="#services">Услуги</a>
+                <a href="#works">Работы</a>
+                <a href="tel:+79816666670" style="color: #d4af37;">8 (981) 666-66-70</a>
+            </nav>
+        </div>
+    </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>Мастерская чистой воды</h1>
-            <p>Профессиональный подход к колодцам и дренажным системам в Московской области</p>
+        <div class="container hero-content animate">
+            <h1>Профессиональный сервис <span>твоего колодца</span></h1>
+            <p>Денис Климкин: Качество, Гарантия, Кристальная чистота.</p>
+            <a href="#services" class="btn">Изучить услуги</a>
         </div>
     </section>
 
-    <section class="section">
+    <section id="about" class="section">
+        <div class="container animate">
+            <h2 class="section-h">Почему выбирают <span>нас</span></h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+                <p style="font-size: 1.3rem; color: var(--gray);">Мы не просто чистим — мы реставрируем. Владея тремя направлениями (Колодцы, Септики, Дренаж), мы создаем идеальную инженерную экосистему на вашем участке. Наша цель: чтобы вы забыли о проблемах с водой на годы.</p>
+                <p style="font-size: 1.1rem;">Работа выполняется профессиональным оборудованием. Мы используем мойки высокого давления, проводим дезинфекцию и гарантируем результат в течение 6 месяцев.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
         <div class="container">
-            <h2 class="section-title">Наши направления</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div class="service-box">
+            <h2 class="section-h">Премиальные <span>Услуги</span></h2>
+            <div class="services-grid">
+                
+                <div class="s-card animate">
                     <h3>Обслуживание</h3>
-                    <p>Чистка, дезинфекция, ремонт швов и углубление действующих колодцев.</p>
-                    <a href="cleaning.html" class="btn" style="margin-top:20px">Подробнее</a>
+                    <ul>
+                        <li>Откачка и мойка шахты (ВД)</li>
+                        <li>Дезинфекция марганцовкой</li>
+                        <li>Чистка дна (до 15 см ила)</li>
+                        <li>Скрабирование стенок</li>
+                    </ul>
+                    <span class="price-tag">от 16 000 ₽</span>
                 </div>
-                <div class="service-box">
-                    <h3>Копка под ключ</h3>
-                    <p>Строительство новых колодцев и септиков из бетонных колец с гарантией.</p>
-                    <a href="digging.html" class="btn" style="margin-top:20px">Подробнее</a>
+
+                <div class="s-card animate">
+                    <h3>Строительство</h3>
+                    <ul>
+                        <li>Копка колодцев под ключ</li>
+                        <li>Монтаж септиков 2+2, 3+3</li>
+                        <li>Материалы (ЖБИ кольца) вкл.</li>
+                        <li>Герметизация стыков</li>
+                    </ul>
+                    <span class="price-tag">8 500 ₽ / кольцо</span>
                 </div>
-                <div class="service-box">
+
+                <div class="s-card animate">
                     <h3>Дренаж</h3>
-                    <p>Защита участка от подтопления: поверхностный и глубинный дренаж.</p>
-                    <a href="drainage.html" class="btn" style="margin-top:20px">Подробнее</a>
+                    <ul>
+                        <li>Глубинный дренаж</li>
+                        <li>Поверхностный дренаж</li>
+                        <li>Ливневая канализация</li>
+                        <li>Отвод воды с участка</li>
+                    </ul>
+                    <span class="price-tag">от 2 000 ₽ / метр</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="section">
+        <div class="container">
+            <h2 class="section-h">Наши <span>Работы</span></h2>
+            <div class="gallery-grid">
+                <div class="g-item animate">
+                    <img src="https://images.unsplash.com/photo-1595530215904-453303681403?auto=format&fit=crop&w=500&q=80" alt="">
+                    <div class="g-info"><h4>Чистка колодца (Клин)</h4><p>Глубина 12 колец</p></div>
+                </div>
+                <div class="g-item animate">
+                    <img src="https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&w=500&q=80" alt="">
+                    <div class="g-info"><h4>Септик 2+2</h4><p>Монтаж за 1 день</p></div>
+                </div>
+                <div class="g-item animate">
+                    <img src="https://images.unsplash.com/photo-1541888941290-1e897918f62c?auto=format&fit=crop&w=500&q=80" alt="">
+                    <div class="g-info"><h4>Дренаж участка</h4><p>Погонный метр: 45м</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>WELLS-MO</h4>
-                    <p>Работаем на качество. Гарантия на услуги — 6 месяцев.</p>
-                </div>
-                <div>
-                    <h4>Контакты</h4>
-                    <p>info@wells-mo.ru</p>
-                    <p>Московская область</p>
-                </div>
-            </div>
-            <div class="footer-bottom">&copy; 2024 Климкин Денис Владимирович. Premium Well Services.</div>
-        </div>
+    <footer style="padding: 50px 0; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+        <p>Денис Владимирович Климкин | 8 (981) 666-66-70</p>
+        <p style="color: var(--gray); font-size: 12px; margin-top: 10px;">&copy; 2026 WELLS-MO. PREMIUM QUALITY.</p>
     </footer>
+
 </body>
 </html>
