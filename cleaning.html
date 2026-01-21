@@ -6,25 +6,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><div class="nav-container"><a href="index.html" class="logo">WELLS-MO</a><div class="contacts"><a href="tel:+79816666670">8 (981) 666-66-70</a></div><nav><a href="index.html">Главная</a><a href="cleaning.html" class="active">Чистка</a><a href="digging.html">Копка</a><a href="drainage.html">Дренаж</a><a href="works.html">Работы</a><a href="about.html">О нас</a></nav></div></header>
+    <header>
+        <div class="nav-wrap">
+            <a href="index.html" class="logo">WELLS-MO</a>
+            <div class="header-phones">
+                <a href="tel:+79816666670"><span>Денис</span> 8 (981) 666-66-70</a>
+                <a href="tel:+79096449832"><span>Анис</span> 8 (909) 644-98-32</a>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="cleaning.html" style="color:var(--gold)">Чистка</a>
+            <a href="digging.html">Копка</a>
+            <a href="drainage.html">Дренаж</a>
+            <a href="works.html">Работы</a>
+            <a href="about.html">О нас</a>
+        </nav>
+    </header>
 
-    <section class="container">
-        <h1>Профессиональная чистка</h1>
+    <div class="container" style="padding-top: 150px;">
+        <h1>ЧИСТКА <span>КОЛОДЦА</span></h1>
         <div class="card">
-            <h2>Что мы делаем:</h2>
-            <ul>
-                <li>Полная откачка воды.</li>
-                <li>Мойка шахты высокого давления (ВД).</li>
-                <li>Чистка дна от иловых отложений (до 15 см).</li>
-                <li>Дезинфекция марганцовкой.</li>
+            <h2>ЧТО ВХОДИТ В PREMIUM-ПАКЕТ:</h2>
+            <ul style="list-style: none; margin-top: 20px; font-size: 18px;">
+                <li>✓ Откачка воды профессиональным оборудованием</li>
+                <li>✓ Мойка шахты мойкой высокого давления</li>
+                <li>✓ Санитарная обработка марганцовкой</li>
+                <li>✓ Выемка иловых отложений (до 15 см)</li>
             </ul>
-            <span class="price">16 000 ₽</span>
+            <span class="price-box">16 000 ₽</span>
         </div>
-        <div class="card">
-            <h3>Дополнительно:</h3>
-            <p>Чистка дна от ила (1 кольцо) — 6 000 ₽</p>
-            <p>Углубление колодца (1 кольцо) — 20 000 ₽</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="card">
+                <h3>ДОПОЛНИТЕЛЬНО</h3>
+                <p>Чистка дна (за кольцо)</p>
+                <span class="price-box">6 000 ₽</span>
+            </div>
+            <div class="card">
+                <h3>УГЛУБЛЕНИЕ</h3>
+                <p>За 1 кольцо</p>
+                <span class="price-box">20 000 ₽</span>
+            </div>
         </div>
-    </section>
+    </div>
 </body>
 </html>
