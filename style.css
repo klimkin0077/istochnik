@@ -3,128 +3,123 @@
 
 :root {
     --gold: #d4af37;
-    --dark: #0f141a;
-    --dark-blue: #1a222c;
+    --dark: #0a0d10;
+    --card-bg: #161b22;
     --white: #ffffff;
-    --gray: #a0a0a0;
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
 body { 
     font-family: 'Montserrat', sans-serif; 
     background-color: var(--dark); 
     color: var(--white); 
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* Для iPhone */
 }
 
-/* Скроллбар */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--dark); }
-::-webkit-scrollbar-thumb { background: var(--gold); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-/* Анимация появления */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate { animation: fadeInUp 1s forwards; }
-
-/* HEADER */
+/* ГЛАВНОЕ МЕНЮ - Glassmorphism */
 header {
-    padding: 20px 0;
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(15, 20, 26, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 13, 16, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 .navbar { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 26px; font-weight: 900; color: var(--gold); text-decoration: none; letter-spacing: 2px; }
+.logo { font-size: 22px; font-weight: 900; color: var(--gold); text-decoration: none; letter-spacing: 2px; }
+
+.nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { 
-    color: var(--white); text-decoration: none; margin-left: 25px; 
-    font-weight: 600; font-size: 13px; text-transform: uppercase; transition: var(--transition);
+    color: var(--white); text-decoration: none; 
+    font-weight: 600; font-size: 11px; text-transform: uppercase; 
+    letter-spacing: 1px; opacity: 0.7; transition: var(--transition);
 }
-.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1510133769068-68884a1273ea?auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* ЭФФЕКТЫ 3D КАРТОЧЕК */
+.card-3d {
+    background: var(--card-bg);
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
-.hero-content h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; }
-.hero-content span { color: var(--gold); }
-.hero-content p { font-size: 1.2rem; color: var(--gray); margin-bottom: 35px; }
+.card-3d:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(2deg);
+    border-color: var(--gold);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+
+/* ЗАГОЛОВКИ */
+.page-title { padding: 150px 0 50px; text-align: center; }
+.page-title h1 { font-size: clamp(2rem, 8vw, 4rem); font-weight: 900; text-transform: uppercase; }
+.page-title span { color: var(--gold); }
+
+/* ГАЛЕРЕЯ НА 9 ФОТО */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding-bottom: 100px;
+}
+
+.photo-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background: #111;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    filter: grayscale(0.5);
+}
+
+.photo-card:hover img { transform: scale(1.1); filter: grayscale(0); }
+
+.photo-info {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.photo-card:hover .photo-info { transform: translateY(0); }
 
 /* КНОПКИ */
-.btn {
-    padding: 18px 45px;
+.cta-btn {
+    display: inline-block;
+    padding: 15px 35px;
     background: var(--gold);
     color: var(--dark);
     text-decoration: none;
     font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-top: 20px;
     transition: var(--transition);
-    display: inline-block;
-    border: 2px solid var(--gold);
 }
-.btn:hover { background: transparent; color: var(--gold); transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+.cta-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--gold); }
 
-/* СЕКЦИИ */
-.section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.section-h { font-size: 2.5rem; text-align: center; margin-bottom: 60px; text-transform: uppercase; font-weight: 900; }
-.section-h span { color: var(--gold); }
-
-/* КАРТОЧКИ УСЛУГ (3D ЭФФЕКТ) */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-.s-card {
-    background: var(--dark-blue);
-    padding: 50px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-.s-card:hover {
-    transform: translateY(-10px) rotateX(2deg);
-    border-color: var(--gold);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-.s-card h3 { color: var(--gold); font-size: 1.8rem; margin-bottom: 20px; }
-.s-card ul { list-style: none; margin-bottom: 30px; }
-.s-card ul li { margin-bottom: 12px; color: var(--gray); position: relative; padding-left: 20px; }
-.s-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
-.price-tag { font-size: 1.5rem; font-weight: 900; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 15px; display: block; }
-
-/* ГАЛЕРЕЯ */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.g-item { 
-    height: 350px; background: #222; position: relative; overflow: hidden;
-    cursor: pointer;
-}
-.g-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; opacity: 0.7; }
-.g-item:hover img { transform: scale(1.1); opacity: 1; }
-.g-info { 
-    position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-}
-
+/* Адаптив для iPhone */
 @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.5rem; }
-    .nav-links { display: none; }
+    .nav-links { display: none; } /* Для мобильных обычно делают бургер, но пока упростим для навигации по кнопкам */
+    .navbar { justify-content: center; }
+    .card-3d { padding: 25px; }
 }
