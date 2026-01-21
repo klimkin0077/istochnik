@@ -2,33 +2,65 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELLS-MO | Премиум Сервис</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WELLS-MO | Премиальное обслуживание колодцев</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <div class="container navbar">
+        <div class="nav-container">
             <a href="index.html" class="logo">WELLS-MO</a>
-            <nav class="nav-links">
-                <a href="about.html">О нас</a>
-                <a href="services.html">Услуги</a>
+            <div class="contacts-header">
+                <a href="tel:+79816666670">8 (981) 666-66-70</a>
+                <span>Денис Владимирович</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="cleaning.html">Чистка</a>
+                <a href="digging.html">Копка</a>
+                <a href="drainage.html">Дренаж</a>
                 <a href="works.html">Работы</a>
+                <a href="about.html">О нас</a>
             </nav>
         </div>
     </header>
 
-    <div class="page-title">
-        <h1>Эстетика <span>Чистой Воды</span></h1>
-        <p>Колодцы. Септики. Дренаж. Профессионально.</p>
-        <a href="services.html" class="cta-btn">Посмотреть прайс</a>
-    </div>
-
-    <section class="container" style="padding-bottom: 100px;">
-        <div class="card-3d">
-            <h2 style="color:var(--gold); margin-bottom: 20px;">Денис Климкин</h2>
-            <p style="font-size: 1.2rem; opacity: 0.8;">Мы создаем инженерные системы, которые работают незаметно и долго. Наш стиль — это отсутствие компромиссов в качестве материалов и идеальная чистота на объекте.</p>
+    <section class="hero">
+        <div class="container hero-text">
+            <h1>БИТВА ЗА <br><span>ЧИСТУЮ ВОДУ</span></h1>
+            <p style="max-width: 600px; margin-top: 20px;">Забудьте про дилетантов. Мы делаем колодцы по стандарту Premium: мойка ВД, дезинфекция, безупречные швы. Качество без цензуры.</p>
+            <a href="tel:+79816666670" class="btn-main">Позвонить сейчас</a>
         </div>
     </section>
+
+    <section class="container" style="padding: 100px 20px;">
+        <h2 style="font-size: 3rem; text-transform: uppercase;">Наши <span>Направления</span></h2>
+        <div class="service-grid">
+            <div class="s-card" onclick="location.href='cleaning.html'">
+                <h3>ЧИСТКА И РЕМОНТ</h3>
+                <p>Возвращаем питьевое качество воды. Мойка шахты под давлением.</p>
+                <span class="price-big">16 000 ₽</span>
+                <a href="cleaning.html" style="color:var(--gold)">Подробнее →</a>
+            </div>
+            <div class="s-card" onclick="location.href='digging.html'">
+                <h3>КОПКА ПОД КЛЮЧ</h3>
+                <p>Колодцы и септики. Армированные кольца с замком.</p>
+                <span class="price-big">8 500 ₽/к</span>
+                <a href="digging.html" style="color:var(--gold)">Подробнее →</a>
+            </div>
+            <div class="s-card" onclick="location.href='drainage.html'">
+                <h3>ДРЕНАЖ УЧАСТКА</h3>
+                <p>Умное водоотведение. Глубинный и ливневый дренаж.</p>
+                <span class="price-big">от 2 000 ₽/м</span>
+                <a href="drainage.html" style="color:var(--gold)">Подробнее →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 50px; background: #050505; text-align: center;">
+        <h3 style="color:var(--gold)">info@wells-mo.ru</h3>
+        <p>Работаем по всей Московской области. Гарантия 6 месяцев.</p>
+    </footer>
+
 </body>
 </html>
