@@ -1,71 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap');
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
 
 :root {
-    --primary: #1a2a3a;
-    --accent: #b89664;
-    --text: #333;
-    --light: #f4f7f6;
+    --gold: #d4af37;
+    --dark: #0f141a;
+    --dark-blue: #1a222c;
     --white: #ffffff;
+    --gray: #a0a0a0;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Open Sans', sans-serif; color: var(--text); line-height: 1.7; display: flex; flex-direction: column; min-height: 100vh; }
-<header>
-    <div class="container navbar">
-        <a href="index.html" class="logo">WELLS-MO</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="about.html">О компании</a></li>
-            <li><a href="cleaning.html">Обслуживание</a></li>
-            <li><a href="digging.html">Копка</a></li>
-            <li><a href="drainage.html">Дренаж</a></li>
-            <li><a href="works.html">Наши работы</a></li>
-        </ul>
-        <div class="tel-block">
-            <a href="tel:+79816666670">8 (981) 666-66-70 Денис</a>
-            <a href="tel:+79096449832">8 (909) 644-98-32 Анис</a>
-        </div>
-    </div>
-</header>
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    background-color: var(--dark); 
+    color: var(--white); 
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* HEADER - Сквозной на всех страницах */
-header { background: var(--white); padding: 15px 0; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+/* Анимация появления */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate { animation: fadeInUp 1s forwards; }
+
+/* HEADER */
+header {
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(15, 20, 26, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
 .navbar { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 22px; font-weight: 800; color: var(--primary); text-decoration: none; border: 2px solid var(--primary); padding: 5px 12px; letter-spacing: 1px; }
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--accent); }
-.tel-block { text-align: right; }
-.tel-block a { display: block; text-decoration: none; color: var(--primary); font-weight: 700; font-size: 14px; }
+.logo { font-size: 26px; font-weight: 900; color: var(--gold); text-decoration: none; letter-spacing: 2px; }
+.nav-links a { 
+    color: var(--white); text-decoration: none; margin-left: 25px; 
+    font-weight: 600; font-size: 13px; text-transform: uppercase; transition: var(--transition);
+}
+.nav-links a:hover { color: var(--gold); }
 
-/* HERO SECTIONS */
-.hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=1920&q=80'); 
-    height: 40vh; background-size: cover; background-position: center; display: flex; align-items: center; color: white; text-align: center; }
-.hero h1 { font-size: 2.5rem; width: 100%; }
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1510133769068-68884a1273ea?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-/* CONTENT */
-.section { padding: 60px 0; }
-.section-title { font-size: 2rem; margin-bottom: 30px; text-align: center; color: var(--primary); position: relative; padding-bottom: 15px; }
-.section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: var(--accent); }
+.hero-content h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; }
+.hero-content span { color: var(--gold); }
+.hero-content p { font-size: 1.2rem; color: var(--gray); margin-bottom: 35px; }
 
-.about-box { background: var(--light); padding: 40px; border-radius: 4px; margin-bottom: 40px; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+/* КНОПКИ */
+.btn {
+    padding: 18px 45px;
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    display: inline-block;
+    border: 2px solid var(--gold);
+}
+.btn:hover { background: transparent; color: var(--gold); transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
 
-/* GALLERY */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-.gallery-item { background: white; border: 1px solid #eee; padding: 10px; transition: 0.3s; }
-.gallery-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.gallery-img { width: 100%; height: 250px; object-fit: cover; background: #ddd; display: block; }
-.gallery-caption { padding: 15px 5px; font-weight: 600; font-size: 14px; color: var(--primary); }
+/* СЕКЦИИ */
+.section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.section-h { font-size: 2.5rem; text-align: center; margin-bottom: 60px; text-transform: uppercase; font-weight: 900; }
+.section-h span { color: var(--gold); }
 
-/* FOOTER */
-footer { background: var(--primary); color: white; padding: 40px 0 20px; margin-top: auto; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-.btn { background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; display: inline-block; font-weight: 700; border: none; font-size: 14px; text-transform: uppercase; }
+/* КАРТОЧКИ УСЛУГ (3D ЭФФЕКТ) */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.s-card {
+    background: var(--dark-blue);
+    padding: 50px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+.s-card:hover {
+    transform: translateY(-10px) rotateX(2deg);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.s-card h3 { color: var(--gold); font-size: 1.8rem; margin-bottom: 20px; }
+.s-card ul { list-style: none; margin-bottom: 30px; }
+.s-card ul li { margin-bottom: 12px; color: var(--gray); position: relative; padding-left: 20px; }
+.s-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+.price-tag { font-size: 1.5rem; font-weight: 900; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 15px; display: block; }
 
-@media (max-width: 900px) {
-    .navbar { flex-direction: column; gap: 15px; }
-    .nav-links { flex-wrap: wrap; justify-content: center; }
-    .about-grid { grid-template-columns: 1fr; }
+/* ГАЛЕРЕЯ */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.g-item { 
+    height: 350px; background: #222; position: relative; overflow: hidden;
+    cursor: pointer;
+}
+.g-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; opacity: 0.7; }
+.g-item:hover img { transform: scale(1.1); opacity: 1; }
+.g-info { 
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .nav-links { display: none; }
 }
