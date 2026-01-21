@@ -1,75 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
 :root {
-    --gold: #d4af37;
+    --gold: #C5A059;
     --dark: #050505;
-    --card: #121212;
-    --white: #ffffff;
+    --card: #111111;
+    --glass: rgba(255, 255, 255, 0.03);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: #fff; line-height: 1.4; overflow-x: hidden; }
 
-body { 
-    font-family: 'Montserrat', sans-serif; 
-    background-color: var(--dark); 
-    color: var(--white); 
-    line-height: 1.6;
-}
-
-/* HEADER - Исправлен для iPhone */
+/* ГЛЯНЦЕВАЯ НАВИГАЦИЯ */
 header {
-    background: rgba(0,0,0,0.95);
-    border-bottom: 2px solid var(--gold);
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    padding: 15px 0;
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.nav-wrap {
+    max-width: 1300px; margin: 0 auto; padding: 15px 20px;
+    display: flex; justify-content: space-between; align-items: center;
 }
 
-.logo { font-size: 24px; font-weight: 900; color: var(--gold); text-decoration: none; }
+.logo { font-size: 28px; font-weight: 900; color: var(--gold); text-decoration: none; letter-spacing: -1px; }
 
-.contacts { text-align: right; }
-.contacts a { color: var(--gold); text-decoration: none; font-weight: 900; font-size: 18px; display: block; }
-.contacts span { font-size: 12px; color: #888; text-transform: uppercase; }
+/* КОНТАКТЫ */
+.header-phones { display: flex; gap: 20px; }
+.header-phones a { text-decoration: none; color: #fff; font-weight: 700; font-size: 14px; transition: 0.3s; }
+.header-phones span { color: var(--gold); display: block; font-size: 10px; text-transform: uppercase; }
+.header-phones a:hover { color: var(--gold); }
 
-/* MENU */
-nav { width: 100%; margin-top: 15px; display: flex; justify-content: space-between; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
-nav a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; white-space: nowrap; padding: 5px 10px; border: 1px solid rgba(212,175,55,0.3); }
-nav a:hover, nav a.active { background: var(--gold); color: #000; border-color: var(--gold); }
+/* ГЛАВНОЕ МЕНЮ (ПК) */
+.nav-links { display: flex; gap: 25px; margin-top: 15px; width: 100%; justify-content: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; transition: 0.3s; }
+.nav-links a:hover, .nav-links.active { opacity: 1; color: var(--gold); }
 
-/* CONTENT */
-.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-h1 { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; color: var(--gold); }
-h2 { font-size: 2rem; margin-bottom: 20px; text-transform: uppercase; }
+/* МОБИЛЬНОЕ МЕНЮ */
+.mobile-nav { display: none; position: fixed; bottom: 0; width: 100%; background: #000; border-top: 1px solid var(--gold); z-index: 1001; grid-template-columns: repeat(5, 1fr); padding: 10px 0; }
+.mobile-nav a { color: #fff; text-decoration: none; font-size: 9px; text-align: center; font-weight: 700; text-transform: uppercase; }
+.mobile-nav i { display: block; font-size: 18px; margin-bottom: 5px; color: var(--gold); }
 
+/* КОНТЕНТ */
+.hero { padding: 180px 20px 100px; text-align: center; background: radial-gradient(circle at top, #1a1a1a 0%, #050505 100%); }
+.hero h1 { font-size: clamp(2.5rem, 10vw, 5.5rem); font-weight: 900; line-height: 0.9; text-transform: uppercase; margin-bottom: 30px; }
+.hero h1 span { color: var(--gold); -webkit-text-stroke: 1px var(--gold); -webkit-text-fill-color: transparent; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+
+/* КАРТОЧКИ (3D ГЛЯНЕЦ) */
 .card {
-    background: var(--card);
-    padding: 30px;
-    border-left: 5px solid var(--gold);
-    margin-bottom: 30px;
-    transition: 0.3s;
+    background: var(--card); border: 1px solid rgba(255,255,255,0.05); padding: 40px; margin-bottom: 30px;
+    position: relative; transition: var(--transition); overflow: hidden;
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(212,175,55,0.1); }
+.card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+.card::after {
+    content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: 0.5s; transform: skewX(-20deg);
+}
+.card:hover::after { left: 150%; }
 
-.price { font-size: 28px; font-weight: 900; color: var(--gold); display: block; margin-top: 15px; }
+.price-box { font-size: 36px; font-weight: 900; color: var(--gold); margin: 20px 0; display: block; }
 
-/* GALLERY */
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.g-item { height: 300px; background: #222; border: 1px solid #333; overflow: hidden; position: relative; }
-.g-item img { width: 100%; height: 100%; object-fit: cover; }
-.g-desc { position: absolute; bottom: 0; background: rgba(0,0,0,0.8); width: 100%; padding: 15px; font-size: 14px; font-weight: 700; }
+/* ГАЛЕРЕЯ */
+.grid-9 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+.work-item { height: 400px; background: #111; border: 1px solid #222; overflow: hidden; position: relative; }
+.work-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: grayscale(1); }
+.work-item:hover img { filter: grayscale(0); transform: scale(1.05); }
 
+/* АДАПТИВ */
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    .contacts a { font-size: 16px; }
+    .nav-links { display: none; }
+    .mobile-nav { display: grid; }
+    .header-phones { gap: 10px; }
+    .header-phones a { font-size: 12px; }
+    .hero { padding-top: 120px; }
 }
