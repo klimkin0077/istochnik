@@ -1,283 +1,53 @@
-/* style.css - Дизайн и стили */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-    --primary-color: #2c3e50; /* Темный графит */
-    --accent-color: #c0a375; /* Золотисто-бежевый (Premium) */
-    --text-color: #333333;
-    --light-bg: #f9f9f9;
+    --primary: #1a2a3a;
+    --accent: #b89664; /* Цвет благородного золота */
+    --text: #333;
+    --light: #f4f7f6;
     --white: #ffffff;
-    --spacing: 20px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Open Sans', sans-serif; color: var(--text); line-height: 1.7; }
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--text-color);
-    line-height: 1.6;
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-h1, h2, h3, h4, .logo {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--primary-color);
-}
+/* Header */
+header { background: var(--white); padding: 20px 0; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+.navbar { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; border: 3px solid var(--primary); padding: 5px 15px; }
+.nav-links { list-style: none; display: flex; gap: 25px; }
+.nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 13px; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+.tel-block { text-align: right; line-height: 1.2; }
+.tel-block a { display: block; text-decoration: none; color: var(--primary); font-weight: 700; font-size: 15px; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s;
-}
+/* Hero */
+.hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=1920&q=80'); 
+    height: 60vh; background-size: cover; background-position: center; display: flex; align-items: center; color: white; text-align: center; }
+.hero h1 { font-size: 3rem; margin-bottom: 20px; }
 
-/* --- HEADER --- */
-header {
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: 15px 0;
-}
+/* Service Section */
+.section { padding: 80px 0; }
+.section-title { font-size: 2rem; margin-bottom: 40px; text-align: center; color: var(--primary); }
+.service-box { background: var(--light); padding: 40px; border-radius: 4px; margin-bottom: 30px; border-left: 5px solid var(--accent); }
+.price-tag { font-size: 24px; color: var(--accent); font-weight: 700; margin-top: 10px; display: block; }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.feature-list { list-style: none; margin: 20px 0; }
+.feature-list li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+.feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* Footer */
+footer { background: var(--primary); color: white; padding: 60px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+.footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 13px; }
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border: 2px solid var(--primary-color);
-    padding: 5px 15px;
-}
+.btn { background: var(--accent); color: white; padding: 12px 30px; text-decoration: none; display: inline-block; font-weight: 700; transition: 0.3s; cursor: pointer; border: none; }
+.btn:hover { background: #9e7f52; }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: var(--accent-color);
-}
-
-.header-contacts {
-    text-align: right;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.header-contacts a {
-    display: block;
-    color: var(--primary-color);
-}
-
-/* --- HERO SECTION --- */
-.hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1533310266094-8898a0387fdd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--white);
-    font-weight: 300;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn {
-    display: inline-block;
-    background: var(--accent-color);
-    color: var(--white);
-    padding: 15px 40px;
-    border-radius: 0;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn:hover {
-    background: #a88b60;
-}
-
-/* --- SECTIONS --- */
-.section {
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-color);
-    margin: 15px auto 0;
-}
-
-/* --- SERVICES GRID --- */
-.price-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.price-card {
-    background: var(--white);
-    border: 1px solid #eee;
-    padding: 40px;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-}
-
-.price-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border-color: var(--accent-color);
-}
-
-.price-card h3 {
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
-
-.price {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin: 20px 0;
-}
-
-.price-desc {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* --- ABOUT & FEATURES --- */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    text-align: center;
-}
-
-.feature-item i {
-    font-size: 40px;
-    color: var(--accent-color);
-    margin-bottom: 20px;
-}
-
-.about-text {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.1rem;
-}
-
-/* --- FOOTER --- */
-footer {
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 50px 0 20px;
-    margin-top: auto;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.footer-col h4 {
-    color: var(--accent-color);
-    margin-bottom: 20px;
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-.copyright {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-/* --- MOBILE --- */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .header-contacts {
-        text-align: center;
-        margin-top: 15px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 1.8rem; }
 }
