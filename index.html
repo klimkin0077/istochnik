@@ -2,39 +2,50 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELLS-MO | Премиум Сервис</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WELLS-MO | Премиум Сервис Колодцев</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <div class="nav-container">
+        <div class="nav-wrap">
             <a href="index.html" class="logo">WELLS-MO</a>
-            <div class="contacts">
-                <a href="tel:+79816666670">8 (981) 666-66-70</a>
-                <span>Денис Владимирович</span>
+            <div class="header-phones">
+                <a href="tel:+79816666670"><span>Денис</span> 8 (981) 666-66-70</a>
+                <a href="tel:+79096449832"><span>Анис</span> 8 (909) 644-98-32</a>
             </div>
-            <nav>
-                <a href="index.html" class="active">Главная</a>
-                <a href="cleaning.html">Чистка</a>
-                <a href="digging.html">Копка</a>
-                <a href="drainage.html">Дренаж</a>
-                <a href="works.html">Работы</a>
-                <a href="about.html">О нас</a>
-            </nav>
         </div>
+        <nav class="nav-links">
+            <a href="index.html" style="color:var(--gold)">Главная</a>
+            <a href="cleaning.html">Чистка</a>
+            <a href="digging.html">Копка</a>
+            <a href="drainage.html">Дренаж</a>
+            <a href="works.html">Работы</a>
+            <a href="about.html">О нас</a>
+        </nav>
     </header>
 
-    <section class="container">
-        <h1>Кристальная вода — Наша работа</h1>
-        <div class="card">
-            <p>Профессиональное обслуживание колодцев, септиков и дренажных систем. Мы работаем там, где другие сдаются. Качество Premium, результат навсегда.</p>
-        </div>
-        <div class="gallery">
-            <div class="g-item"><img src="img/1.jpg"><div class="g-desc">Чистка колодцев</div></div>
-            <div class="g-item"><img src="img/2.jpg"><div class="g-desc">Копка септиков</div></div>
-            <div class="g-item"><img src="img/3.jpg"><div class="g-desc">Дренаж участка</div></div>
-        </div>
+    <div class="mobile-nav">
+        <a href="cleaning.html">Чистка</a>
+        <a href="digging.html">Копка</a>
+        <a href="index.html" style="color:var(--gold)">Wells-Mo</a>
+        <a href="drainage.html">Дренаж</a>
+        <a href="works.html">Работы</a>
+    </div>
+
+    <section class="hero">
+        <h1>WELLS-MO<br><span>PREMIUM WELLS</span></h1>
+        <p style="font-size: 1.2rem; opacity: 0.6; letter-spacing: 2px;">ЧИСТКА • КОПКА • ДРЕНАЖ • МОСКОВСКАЯ ОБЛАСТЬ</p>
     </section>
+
+    <div class="container">
+        <div class="card" onclick="location.href='cleaning.html'">
+            <h2>КОМПЛЕКСНОЕ ОБСЛУЖИВАНИЕ</h2>
+            <p>Мойка высокого давления, дезинфекция и восстановление шахты. Мы делаем воду питьевой.</p>
+            <span class="price-box">16 000 ₽</span>
+        </div>
+    </div>
+
 </body>
 </html>
